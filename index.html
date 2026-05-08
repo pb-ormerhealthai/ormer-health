@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ormer AI — Medical-Device AI, End-to-End</title>
+<meta name="description" content="Ormer AI is a Jersey-based studio combining clinical machine-learning development with EU MDR, UK MDR, FDA, and AI Act expertise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBFAF7;
+    --paper-deep: #F2EFE8;
+    --ink: #14161A;
+    --ink-soft: #4A4D54;
+    --ink-mute: #8A8C92;
+    --rule: #DDD8CE;
+    --accent: #A8442C;
+    --accent-deep: #7C2F1F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography */
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 350;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+
+  .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+    color: var(--ink-mute);
+  }
+
+  .section-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Top bar */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(251, 250, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  .topbar.scrolled { border-bottom-color: var(--rule); }
+
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    font-variation-settings: "opsz" 24;
+  }
+  .brand em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  nav ul {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    align-items: center;
+  }
+  nav a {
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 400;
+  }
+  nav a:hover { color: var(--accent); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 180px 0 140px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    align-items: baseline;
+  }
+
+  .hero-meta .label-group {
+    display: flex;
+    gap: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 8vw, 112px);
+    margin-bottom: 60px;
+    max-width: 14ch;
+  }
+
+  .hero h1 .accent {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-tagline {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: end;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .hero-tagline-meta {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .hero-tagline p {
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+
+  /* Section structure */
+  section {
+    padding: 140px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+    align-items: baseline;
+  }
+
+  .section-num {
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .section-title-block .label {
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 350;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 18ch;
+  }
+
+  /* Services */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .service {
+    padding: 48px 40px 48px 0;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
+    align-items: start;
+    transition: background 0.3s ease;
+  }
+  .service:nth-child(even) { padding-right: 0; padding-left: 40px; border-right: none; }
+  .service:nth-last-child(-n+2) { border-bottom: none; }
+  .service:hover { background: rgba(168, 68, 44, 0.03); }
+
+  .service-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .service h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .service p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .service .meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+
+  /* Approach */
+  .approach-content {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+  }
+
+  .approach-text {
+    max-width: 56ch;
+  }
+
+  .approach-text p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.45;
+    font-weight: 350;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .approach-text p:last-child { margin-bottom: 0; }
+  .approach-text p .em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* Product showcase */
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .product-visual {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 48px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top right, rgba(168, 68, 44, 0.18), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(168, 68, 44, 0.08), transparent 50%);
+  }
+
+  .product-visual > * { position: relative; z-index: 1; }
+
+  .product-visual .product-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 350;
+    font-size: 56px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .product-visual .product-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: #D88A6E;
+  }
+
+  .product-visual .product-desc {
+    font-size: 14px;
+    color: rgba(251, 250, 247, 0.72);
+    line-height: 1.5;
+    max-width: 32ch;
+  }
+
+  .product-visual .product-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(251, 250, 247, 0.6);
+  }
+  .product-visual .product-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6BBF7C;
+    box-shadow: 0 0 12px rgba(107, 191, 124, 0.6);
+  }
+
+  .product-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    line-height: 1.2;
+    max-width: 18ch;
+  }
+
+  .product-content p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .product-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .spec .label { display: block; margin-bottom: 6px; }
+  .spec-value {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  /* Founders */
+  .founders {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+
+  .founder {
+    border-top: 1px solid var(--ink);
+    padding-top: 32px;
+  }
+
+  .founder-name {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+
+  .founder-role {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  .founder-bio {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .founder-credentials {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .credential {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+
+  /* Contact */
+  .contact-section {
+    padding: 160px 0;
+    border-bottom: none;
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-headline {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 5.5vw, 64px);
+    font-weight: 350;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .contact-headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+
+  .contact-blurb {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  .contact-details {
+    border-top: 1px solid var(--ink);
+    padding-top: 32px;
+  }
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .contact-row a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .contact-row a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 60px 0 40px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .footer-brand em { color: #D88A6E; font-style: italic; font-weight: 300; }
+
+  .footer-meta {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(251, 250, 247, 0.5);
+  }
+
+  /* Reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal.delay-1 { transition-delay: 0.1s; }
+  .reveal.delay-2 { transition-delay: 0.2s; }
+  .reveal.delay-3 { transition-delay: 0.3s; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .container, .topbar-inner { padding-left: 24px; padding-right: 24px; }
+    .hero { padding: 140px 0 80px; }
+    .hero-meta { flex-direction: column; gap: 16px; margin-bottom: 60px; align-items: flex-start; }
+    .hero-meta .label-group { flex-wrap: wrap; gap: 16px; }
+    .hero-tagline { grid-template-columns: 1fr; gap: 32px; }
+    section { padding: 80px 0; }
+    .section-header { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    .services { grid-template-columns: 1fr; }
+    .service, .service:nth-child(even) {
+      padding: 32px 0;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .approach-content { grid-template-columns: 1fr; gap: 24px; }
+    .product { grid-template-columns: 1fr; gap: 48px; }
+    .product-visual { aspect-ratio: 5 / 4; padding: 40px 32px; }
+    .product-visual .product-name { font-size: 44px; }
+    .founders { grid-template-columns: 1fr; gap: 48px; }
+    .contact-content { grid-template-columns: 1fr; gap: 48px; }
+    .contact-row { grid-template-columns: 80px 1fr; gap: 16px; }
+    .contact-row a { font-size: 18px; }
+
+    nav ul { display: none; }
+    nav.open ul {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-toggle { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand">Ormer<em> AI</em></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#crisisscribe">CrisisScribe</a></li>
+        <li><a href="#founders">Founders</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">Menu</button>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-meta reveal">
+      <div class="label-group">
+        <span class="label">Jersey · Channel Islands</span>
+        <span class="label">Est. 2024</span>
+      </div>
+      <span class="label">A studio for medical-device AI</span>
+    </div>
+
+    <h1 class="display reveal delay-1">
+      Medical-device AI, <span class="accent">end&#8209;to&#8209;end.</span>
+    </h1>
+
+    <div class="hero-tagline reveal delay-2">
+      <div class="hero-tagline-meta">
+        Where machine learning meets <br>
+        medical regulation.
+      </div>
+      <p>
+        Ormer AI is a Jersey-based consultancy and product studio. We design, build, and certify
+        machine-learning systems for clinical use — under EU MDR, UK MDR, FDA, and the EU AI Act.
+        From concept and statistical validation to post-market surveillance.
+      </p>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-block">
+        <span class="label">Services</span>
+        <h2 class="section-title">Four offerings, one rare combination.</h2>
+      </div>
+    </div>
+
+    <div class="services reveal">
+      <div class="service">
+        <div class="service-num">i</div>
+        <div>
+          <h3>EU AI Act × MDR Gap Analysis</h3>
+          <p>
+            A two-week diagnostic for medical-device companies developing AI/ML systems.
+            We map your product against AI Act, MDR, UK MDR, and FDA requirements, identify gaps,
+            and deliver a prioritised remediation roadmap.
+          </p>
+          <span class="meta">Fixed fee · Two weeks</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">ii</div>
+        <div>
+          <h3>Machine-Learning Development &amp; Statistical Validation</h3>
+          <p>
+            End-to-end development of clinical machine-learning models, with statistical
+            analysis plans and validation studies designed for regulatory submission.
+            Current work includes diagnostic ML modelling for respiratory disease in a
+            multi-centre clinical validation study.
+          </p>
+          <span class="meta">Project · Retainer</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">iii</div>
+        <div>
+          <h3>Fractional Regulatory &amp; AI Leadership</h3>
+          <p>
+            Senior expertise without a full-time hire. Acting Head of Regulatory, Head of QA,
+            or Head of AI for medical-device companies — typically one to two days per week,
+            on a six- to twelve-month engagement.
+          </p>
+          <span class="meta">1–2 days per week</span>
+        </div>
+      </div>
+
+      <div class="service">
+        <div class="service-num">iv</div>
+        <div>
+          <h3>Quality, Risk, and Software Lifecycle</h3>
+          <p>
+            ISO 13485-aligned QMS development with extensions for AI Act conformity.
+            Risk management (ISO 14971), software lifecycle (IEC 62304),
+            usability (IEC 62366), and cybersecurity (IEC 81001-5-1).
+          </p>
+          <span class="meta">Project · Audit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <span class="label">Approach</span>
+        <h2 class="section-title">Small, senior, and unusually combined.</h2>
+      </div>
+    </div>
+
+    <div class="approach-content">
+      <div></div>
+      <div class="approach-text reveal delay-1">
+        <p>
+          We are a small, senior team. Engagements are <span class="em">led by founders</span>,
+          not handed to juniors. We work with a limited number of clients at any one time —
+          usually three to five.
+        </p>
+        <p>
+          Our edge is the rare combination of hands-on machine-learning practice and deep
+          medical-device regulatory experience. Most consultancies have one or the other.
+          We routinely build the model <span class="em">and</span> the technical file.
+        </p>
+        <p>
+          A clinical co-founder keeps us honest about whether what we build actually works in
+          practice, not just on paper. That perspective shapes every engagement we take on.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="crisisscribe">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div class="section-title-block">
+        <span class="label">Product</span>
+        <h2 class="section-title">CrisisScribe.</h2>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-visual reveal">
+        <div class="product-status">In Pilot</div>
+        <div>
+          <div class="product-name">Crisis<em>Scribe</em></div>
+          <div class="product-desc" style="margin-top: 16px;">
+            AI-powered clinical scribing and quality assurance for mental-health crisis teams.
+          </div>
+        </div>
+      </div>
+
+      <div class="product-content reveal delay-1">
+        <h3>Designed for the most demanding clinical setting we know.</h3>
+        <p>
+          CrisisScribe is Ormer AI's flagship product: an AI-powered clinical scribing and
+          quality-assurance tool, built specifically for mental-health crisis teams.
+          It captures the conversation, structures the clinical record, and surfaces
+          quality-assurance signals to senior clinicians — without adding to the cognitive load
+          of frontline staff.
+        </p>
+        <p>
+          Currently in pilot with NHS partners. Built on the same regulatory foundations
+          we apply to client work.
+        </p>
+
+        <div class="product-specs">
+          <div class="spec">
+            <span class="label">Classification</span>
+            <span class="spec-value">Class I SaMD</span>
+          </div>
+          <div class="spec">
+            <span class="label">Framework</span>
+            <span class="spec-value">UK MDR · AI Act</span>
+          </div>
+          <div class="spec">
+            <span class="label">Stage</span>
+            <span class="spec-value">Pilot &amp; Seed Raise</span>
+          </div>
+          <div class="spec">
+            <span class="label">Clinical Lead</span>
+            <span class="spec-value">Louise Brady</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="founders">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">04</div>
+      <div class="section-title-block">
+        <span class="label">Founders</span>
+        <h2 class="section-title">An engineer and a clinician.</h2>
+      </div>
+    </div>
+
+    <div class="founders">
+      <div class="founder reveal">
+        <div class="founder-name">Peter Brady</div>
+        <div class="founder-role">Co-founder &amp; CEO</div>
+        <p class="founder-bio">
+          Three decades in medical-device systems engineering, software development, and
+          regulatory affairs. MSc in Computer Science with specialisation in machine learning,
+          computer vision, and pattern recognition. Lead auditor under ISO 13485 with EU
+          Notified Body experience. Currently co-statistician on a multi-centre clinical
+          validation study, developing machine-learning diagnostic models for respiratory disease.
+        </p>
+        <div class="founder-credentials">
+          <span class="credential">— MSc Computer Science (ML, CV, Pattern Recognition)</span>
+          <span class="credential">— ISO 13485 Lead Auditor · EU Notified Body</span>
+          <span class="credential">— EU MDR · UK MDR · FDA · IEC 62304 · ISO 14971</span>
+          <span class="credential">— MIT Professional Education, Digital Transformation</span>
+        </div>
+      </div>
+
+      <div class="founder reveal delay-1">
+        <div class="founder-name">Louise Brady</div>
+        <div class="founder-role">Co-founder &amp; Chief Clinical Officer</div>
+        <p class="founder-bio">
+          Senior mental-health clinician with frontline crisis-team experience. Clinical lead
+          for CrisisScribe, ensuring that what we build is grounded in the real practice of
+          clinical work, not in idealised process diagrams. Recent academic work on clinical
+          supervision in mental-health crisis teams (Robert Gordon University).
+        </p>
+        <div class="founder-credentials">
+          <span class="credential">— Mental-Health Nursing Practice</span>
+          <span class="credential">— Crisis Team Frontline Experience</span>
+          <span class="credential">— Clinical Supervision · Mental Health Services</span>
+          <span class="credential">— Clinical Lead, CrisisScribe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-content">
+      <div class="reveal">
+        <h2 class="contact-headline">
+          Engagements begin <em>with a conversation.</em>
+        </h2>
+        <p class="contact-blurb">
+          If your medical-device AI project would benefit from a small, senior team that can
+          do both the engineering and the regulation, we'd be glad to hear from you.
+          Most engagements start with a one-hour call. If the fit is right, we'll send a
+          proposal within a week.
+        </p>
+      </div>
+
+      <div class="contact-details reveal delay-1">
+        <div class="contact-row">
+          <span class="label">Email</span>
+          <a href="mailto:hello@ormer-health.ai">hello@ormer-health.ai</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">LinkedIn</span>
+          <a href="https://www.linkedin.com/company/ormer-ai" target="_blank" rel="noopener">/company/ormer-ai</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Office</span>
+          <a href="#" style="cursor: default;">Saint Helier · Jersey · Channel Islands</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Company</span>
+          <a href="#" style="cursor: default;">Ormer AI Ltd · Reg. Jersey</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">Ormer<em> AI</em></div>
+      <div class="footer-meta">© 2026 Ormer AI Ltd · All Rights Reserved</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Topbar border on scroll
+  const topbar = document.getElementById('topbar');
+  window.addEventListener('scroll', () => {
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  navToggle.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
