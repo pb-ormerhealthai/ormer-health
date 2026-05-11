@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ormer AI — Medical-Device AI, End-to-End</title>
-<meta name="description" content="Ormer AI is a Jersey-based studio combining clinical machine-learning development with EU MDR, UK MDR, FDA, and AI Act expertise.">
+<title>Ormer Health — Structured Innovation in Medical-Device AI</title>
+<meta name="description" content="Ormer Health helps established medical-device companies identify where AI creates real product advantage — and build the working prototype that proves it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -299,6 +299,279 @@
     font-style: italic;
   }
 
+  /* Methodology — 3-stage flow */
+  .methodology {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: 16px;
+    margin-bottom: 80px;
+    position: relative;
+  }
+
+  .stage {
+    padding: 40px 32px 32px 0;
+    position: relative;
+  }
+  .stage:nth-child(2) { padding-left: 32px; padding-right: 32px; }
+  .stage:nth-child(3) { padding-left: 32px; padding-right: 0; }
+  .stage:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 64px;
+    width: 1px;
+    height: calc(100% - 80px);
+    background: var(--rule);
+  }
+
+  .stage-marker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .stage-progress {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .stage-progress.half {
+    background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
+  }
+  .stage-progress.full {
+    background: var(--accent);
+  }
+
+  .stage-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stage h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+
+  .stage p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .stage-deliverable {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    display: block;
+  }
+
+  .methodology-closing {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    padding-top: 60px;
+    border-top: 1px solid var(--rule);
+  }
+  .methodology-closing-text {
+    max-width: 56ch;
+  }
+  .methodology-closing p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.45;
+    font-weight: 350;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .methodology-closing p:last-child { margin-bottom: 0; }
+  .methodology-closing p .em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* Case Study */
+  .case-study-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .case-visual {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 40px;
+    border-radius: 2px;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .case-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top left, rgba(168, 68, 44, 0.14), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(168, 68, 44, 0.06), transparent 55%);
+  }
+  .case-visual > * { position: relative; z-index: 1; }
+
+  .case-visual svg { width: 100%; height: auto; display: block; }
+
+  .case-visual .case-meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: rgba(245, 241, 234, 0.55);
+    margin-bottom: 4px;
+  }
+  .case-visual .case-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 350;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .case-visual .case-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: #D88A6E;
+  }
+
+  .case-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    line-height: 1.2;
+    max-width: 20ch;
+  }
+  .case-content p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+  .case-content p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .case-pullquote {
+    margin: 32px 0 28px;
+    padding: 24px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 350;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .case-pullquote .em { color: var(--accent); }
+
+  .case-awards {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .case-award .label { display: block; margin-bottom: 6px; }
+  .case-award-value {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  /* Capabilities — compressed */
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--rule);
+  }
+  .cap {
+    padding: 32px 32px 32px 0;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .cap:nth-child(even) { padding-right: 0; padding-left: 32px; border-right: none; }
+  .cap:nth-last-child(-n+2) { border-bottom: none; }
+  .cap-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .cap h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .cap p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .capabilities-note {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+  }
+  .capabilities-note p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.55;
+    font-weight: 350;
+    font-style: italic;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    max-width: 58ch;
+  }
+  .capabilities-note p .em {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
   /* Product showcase */
   .product {
     display: grid;
@@ -575,6 +848,24 @@
       border-bottom: 1px solid var(--rule);
     }
     .approach-content { grid-template-columns: 1fr; gap: 24px; }
+    .methodology { grid-template-columns: 1fr; gap: 0; margin-bottom: 48px; }
+    .stage, .stage:nth-child(2), .stage:nth-child(3) {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .stage:not(:last-child)::after { display: none; }
+    .stage:last-child { border-bottom: none; }
+    .methodology-closing { grid-template-columns: 1fr; gap: 16px; padding-top: 40px; }
+    .case-study-layout { grid-template-columns: 1fr; gap: 48px; }
+    .case-visual { aspect-ratio: 5 / 4; padding: 32px 28px; }
+    .case-visual .case-name { font-size: 28px; }
+    .capabilities-grid { grid-template-columns: 1fr; }
+    .capabilities-note { grid-template-columns: 1fr; gap: 16px; padding-top: 32px; margin-top: 40px; }
+    .cap, .cap:nth-child(even) {
+      padding: 28px 0;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
     .product { grid-template-columns: 1fr; gap: 48px; }
     .product-visual { aspect-ratio: 5 / 4; padding: 40px 32px; }
     .product-visual .product-name { font-size: 44px; }
@@ -604,13 +895,13 @@
 
 <div class="topbar" id="topbar">
   <div class="topbar-inner">
-    <a href="#top" class="brand">Ormer<em> AI</em></a>
+    <a href="#top" class="brand">Ormer<em> Health</em></a>
     <nav id="nav">
       <ul>
-        <li><a href="#services">Services</a></li>
         <li><a href="#approach">Approach</a></li>
+        <li><a href="#case-study">Case Study</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#crisisscribe">CrisisScribe</a></li>
-        <li><a href="#founders">Founders</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">Menu</button>
@@ -629,116 +920,313 @@
     </div>
 
     <h1 class="display reveal delay-1">
-      Medical-device AI, <span class="accent">end&#8209;to&#8209;end.</span>
+      Structured innovation <span class="accent">in medical-device AI.</span>
     </h1>
 
     <div class="hero-tagline reveal delay-2">
       <div class="hero-tagline-meta">
-        Where machine learning meets <br>
-        medical regulation.
+        Where real opportunity meets <br>
+        working prototype.
       </div>
       <p>
-        Ormer AI is a Jersey-based consultancy and product studio. We design, build, and certify
-        machine-learning systems for clinical use — under EU MDR, UK MDR, FDA, and the EU AI Act.
-        From concept and statistical validation to post-market surveillance.
+        Ormer Health helps established medical-device companies identify where AI creates
+        genuine product advantage — and builds the working prototype that proves it.
+        From strategic opportunity-mapping through to a regulatory-grade demonstrator,
+        we bring engineering rigour and regulatory foresight to the front end of innovation.
       </p>
     </div>
   </div>
 </header>
 
-<section id="services">
+<section id="approach">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-num">01</div>
       <div class="section-title-block">
-        <span class="label">Services</span>
-        <h2 class="section-title">Four offerings, one rare combination.</h2>
+        <span class="label">Approach</span>
+        <h2 class="section-title">From real opportunity to working prototype.</h2>
       </div>
     </div>
 
-    <div class="services reveal">
-      <div class="service">
-        <div class="service-num">i</div>
+    <div class="methodology reveal">
+      <div class="stage">
+        <div class="stage-marker">
+          <span class="stage-progress"></span>
+          <span class="stage-num">i</span>
+        </div>
+        <h3>Opportunity</h3>
+        <p>
+          Where does AI create <em>genuine</em> product advantage in your portfolio
+          &mdash; and where is it noise?
+        </p>
+        <p>
+          We work alongside your R&amp;D, clinical, and commercial leads to map the
+          landscape of plausible AI applications against your product strategy. We
+          separate real opportunities from bandwagon-jumping, and rank what's left by
+          clinical value, technical feasibility, and regulatory tractability.
+        </p>
+        <span class="stage-deliverable">Deliverable · Opportunity Map &amp; Shortlist</span>
+      </div>
+
+      <div class="stage">
+        <div class="stage-marker">
+          <span class="stage-progress half"></span>
+          <span class="stage-num">ii</span>
+        </div>
+        <h3>Concept</h3>
+        <p>
+          From shortlisted opportunity to specific, buildable product concept.
+        </p>
+        <p>
+          We translate the opportunity into a defined product concept &mdash; functional
+          architecture, data strategy, clinical claim, and regulatory pathway, all
+          considered together rather than in sequence. The result is a concept that's
+          novel, technically credible, and certifiable.
+        </p>
+        <span class="stage-deliverable">Deliverable · Concept Definition &amp; Pathway</span>
+      </div>
+
+      <div class="stage">
+        <div class="stage-marker">
+          <span class="stage-progress full"></span>
+          <span class="stage-num">iii</span>
+        </div>
+        <h3>Prototype</h3>
+        <p>
+          A working concept demonstrator that de-risks the full programme.
+        </p>
+        <p>
+          We build a regulatory-grade prototype that validates the technical assumptions
+          and produces real data against real questions. By the end of this stage,
+          you've replaced a slide-deck idea with something stakeholders can interact with
+          &mdash; and a clear-eyed view of what full development will cost.
+        </p>
+        <span class="stage-deliverable">Deliverable · Concept Demonstrator</span>
+      </div>
+    </div>
+
+    <div class="methodology-closing">
+      <div></div>
+      <div class="methodology-closing-text reveal delay-1">
+        <p>
+          Most consultancies will sell you a strategy deck or a regulatory file.
+          We do the work between them &mdash; the structured front-end that decides
+          whether the strategy is real and whether the file is worth writing.
+        </p>
+        <p>
+          Engagements are <span class="em">led by founders</span>, not handed to
+          juniors. Our edge is the rare combination of hands-on machine-learning
+          practice, three decades of medical-device engineering, and deep regulatory
+          experience. Most teams have one of these. We routinely bring all three.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-study">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <span class="label">Case Study · Selected Work</span>
+        <h2 class="section-title">When a commodity became a clinical platform.</h2>
+      </div>
+    </div>
+
+    <div class="case-study-layout">
+      <div class="case-visual reveal">
         <div>
-          <h3>EU AI Act × MDR Gap Analysis</h3>
-          <p>
-            A two-week diagnostic for medical-device companies developing AI/ML systems.
-            We map your product against AI Act, MDR, UK MDR, and FDA requirements, identify gaps,
-            and deliver a prioritised remediation roadmap.
-          </p>
-          <span class="meta">Fixed fee · Two weeks</span>
+          <div class="case-meta">Selected work · Anonymised</div>
+          <div class="case-name">Instrumented<br><em>Orthopaedic Implant</em></div>
+        </div>
+
+        <!-- Abstract visualization: an implant form with sensor points and emanating signals -->
+        <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- main implant form: simplified intramedullary nail shape -->
+          <defs>
+            <linearGradient id="implantGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#D88A6E" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#A8442C" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+
+          <!-- emanating signal waves (data) -->
+          <g stroke="#D88A6E" stroke-width="1" fill="none" opacity="0.4">
+            <path d="M 90 60 Q 130 30 170 60" />
+            <path d="M 90 50 Q 130 10 170 50" />
+            <path d="M 250 60 Q 290 30 330 60" />
+            <path d="M 250 50 Q 290 10 330 50" />
+          </g>
+
+          <!-- main implant body -->
+          <rect x="40" y="105" width="280" height="14" rx="7" fill="url(#implantGrad)" />
+          <!-- tapered ends -->
+          <circle cx="40" cy="112" r="9" fill="url(#implantGrad)" />
+          <circle cx="320" cy="112" r="9" fill="url(#implantGrad)" />
+
+          <!-- sensor points -->
+          <circle cx="90" cy="112" r="4" fill="#F0EBE0" />
+          <circle cx="90" cy="112" r="8" fill="none" stroke="#F0EBE0" stroke-width="0.6" opacity="0.4" />
+          <circle cx="180" cy="112" r="4" fill="#F0EBE0" />
+          <circle cx="180" cy="112" r="8" fill="none" stroke="#F0EBE0" stroke-width="0.6" opacity="0.4" />
+          <circle cx="270" cy="112" r="4" fill="#F0EBE0" />
+          <circle cx="270" cy="112" r="8" fill="none" stroke="#F0EBE0" stroke-width="0.6" opacity="0.4" />
+
+          <!-- data lines below -->
+          <g stroke="#D88A6E" stroke-width="1" fill="none" opacity="0.35">
+            <path d="M 90 130 L 90 170" />
+            <path d="M 180 130 L 180 170" />
+            <path d="M 270 130 L 270 170" />
+            <path d="M 60 170 L 300 170" />
+          </g>
+
+          <!-- data wave at bottom -->
+          <path d="M 60 195 Q 90 180 120 195 T 180 195 T 240 195 T 300 195"
+                stroke="#D88A6E" stroke-width="1.2" fill="none" opacity="0.6" />
+
+          <!-- micro-labels -->
+          <text x="90" y="146" font-family="Geist, sans-serif" font-size="7"
+                fill="#F0EBE0" opacity="0.55" text-anchor="middle"
+                letter-spacing="0.8">STRAIN</text>
+          <text x="180" y="146" font-family="Geist, sans-serif" font-size="7"
+                fill="#F0EBE0" opacity="0.55" text-anchor="middle"
+                letter-spacing="0.8">ACCEL.</text>
+          <text x="270" y="146" font-family="Geist, sans-serif" font-size="7"
+                fill="#F0EBE0" opacity="0.55" text-anchor="middle"
+                letter-spacing="0.8">STRAIN</text>
+        </svg>
+
+        <div>
+          <div class="case-meta" style="opacity: 0.75;">Two IET Technology<br>Innovation Awards</div>
         </div>
       </div>
 
-      <div class="service">
-        <div class="service-num">ii</div>
-        <div>
-          <h3>Machine-Learning Development &amp; Statistical Validation</h3>
-          <p>
-            End-to-end development of clinical machine-learning models, with statistical
-            analysis plans and validation studies designed for regulatory submission.
-            Current work includes diagnostic ML modelling for respiratory disease in a
-            multi-centre clinical validation study.
-          </p>
-          <span class="meta">Project · Retainer</span>
-        </div>
-      </div>
+      <div class="case-content reveal delay-1">
+        <h3>How a commoditised trauma product line became an award-winning platform.</h3>
 
-      <div class="service">
-        <div class="service-num">iii</div>
-        <div>
-          <h3>Fractional Regulatory &amp; AI Leadership</h3>
-          <p>
-            Senior expertise without a full-time hire. Acting Head of Regulatory, Head of QA,
-            or Head of AI for medical-device companies — typically one to two days per week,
-            on a six- to twelve-month engagement.
-          </p>
-          <span class="meta">1–2 days per week</span>
-        </div>
-      </div>
+        <p>
+          A long-standing orthopaedics manufacturer had a problem familiar to many
+          established medical-device businesses. Their trauma product line was high
+          quality, technically sound, and increasingly indistinguishable from
+          competitors. Price was becoming the deciding factor in tenders.
+        </p>
 
-      <div class="service">
-        <div class="service-num">iv</div>
-        <div>
-          <h3>Quality, Risk, and Software Lifecycle</h3>
-          <p>
-            ISO 13485-aligned QMS development with extensions for AI Act conformity.
-            Risk management (ISO 14971), software lifecycle (IEC 62304),
-            usability (IEC 62366), and cybersecurity (IEC 81001-5-1).
-          </p>
-          <span class="meta">Project · Audit</span>
+        <p>
+          The brief was unusually open: <strong>how do we differentiate?</strong>
+        </p>
+
+        <p>
+          The answer that emerged from a structured opportunity-mapping exercise was
+          the concept of an instrumented intramedullary nail &mdash; a familiar
+          orthopaedic implant, but with embedded strain gauges and an accelerometer.
+          The same implant could now:
+        </p>
+
+        <p>
+          &mdash; Measure the degree of fracture healing through load-bearing analysis<br>
+          &mdash; Detect non-unions earlier than radiographic imaging<br>
+          &mdash; Monitor patient gait for changes indicating soft-tissue complications
+        </p>
+
+        <div class="case-pullquote">
+          What had been a commoditised product became
+          <span class="em">a data-generating clinical platform.</span>
+        </div>
+
+        <p>
+          The concept won two IET Technology Innovation Awards and reshaped the
+          manufacturer's strategic positioning in the trauma segment. The lesson
+          isn't about strain gauges. It's that in mature product categories, the
+          real AI opportunity is almost never about adding "AI" &mdash; it's about
+          identifying the data layer the existing product is already adjacent to,
+          but not yet capturing.
+        </p>
+
+        <div class="case-awards">
+          <div class="case-award">
+            <span class="label">Recognition</span>
+            <span class="case-award-value">2× IET Innovation Awards</span>
+          </div>
+          <div class="case-award">
+            <span class="label">Outcome</span>
+            <span class="case-award-value">Strategic Repositioning</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="approach">
+<section id="capabilities">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-num">02</div>
+      <div class="section-num">03</div>
       <div class="section-title-block">
-        <span class="label">Approach</span>
-        <h2 class="section-title">Small, senior, and unusually combined.</h2>
+        <span class="label">Capabilities</span>
+        <h2 class="section-title">The full stack, behind the front-end work.</h2>
       </div>
     </div>
 
-    <div class="approach-content">
+    <div class="capabilities-grid reveal">
+      <div class="cap">
+        <span class="cap-num">i</span>
+        <div>
+          <h4>Machine-Learning Development &amp; Statistical Validation</h4>
+          <p>
+            End-to-end development of clinical ML models, with statistical analysis
+            plans and validation studies designed for regulatory submission.
+          </p>
+        </div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">ii</span>
+        <div>
+          <h4>Regulatory Pathway: MDR, UK MDR, FDA, EU AI Act</h4>
+          <p>
+            Conformity assessment strategy and technical-file authorship across EU MDR,
+            UK MDR, FDA QSR, and the EU AI Act. Including the two-week AI Act &times;
+            MDR gap analysis for products already in development.
+          </p>
+        </div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">iii</span>
+        <div>
+          <h4>Quality, Risk &amp; Software Lifecycle</h4>
+          <p>
+            ISO 13485-aligned QMS with AI Act extensions. Risk management
+            (ISO 14971), software lifecycle (IEC 62304), usability (IEC 62366),
+            cybersecurity (IEC 81001-5-1).
+          </p>
+        </div>
+      </div>
+
+      <div class="cap">
+        <span class="cap-num">iv</span>
+        <div>
+          <h4>Fractional Leadership</h4>
+          <p>
+            Acting Head of AI, Head of Regulatory, or Head of QA for medical-device
+            companies that need senior expertise without a full-time hire. Typically
+            one to two days per week, six- to twelve-month engagements.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="capabilities-note reveal delay-1">
       <div></div>
-      <div class="approach-text reveal delay-1">
+      <div>
         <p>
-          We are a small, senior team. Engagements are <span class="em">led by founders</span>,
-          not handed to juniors. We work with a limited number of clients at any one time —
-          usually three to five.
-        </p>
-        <p>
-          Our edge is the rare combination of hands-on machine-learning practice and deep
-          medical-device regulatory experience. Most consultancies have one or the other.
-          We routinely build the model <span class="em">and</span> the technical file.
-        </p>
-        <p>
-          A clinical co-founder keeps us honest about whether what we build actually works in
-          practice, not just on paper. That perspective shapes every engagement we take on.
+          Although Ormer Health's core market is medical-device AI, the EU AI Act's
+          structural similarity to medical-device regulation means our methodology
+          applies across high-risk AI domains &mdash; including HR technology,
+          education, machinery, and critical infrastructure. We take
+          <span class="em">selected engagements</span> outside medical devices
+          where the regulatory overlap is strongest.
         </p>
       </div>
     </div>
@@ -748,7 +1236,7 @@
 <section id="crisisscribe">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-num">03</div>
+      <div class="section-num">04</div>
       <div class="section-title-block">
         <span class="label">Product</span>
         <h2 class="section-title">CrisisScribe.</h2>
@@ -769,7 +1257,7 @@
       <div class="product-content reveal delay-1">
         <h3>Designed for the most demanding clinical setting we know.</h3>
         <p>
-          CrisisScribe is Ormer AI's flagship product: an AI-powered clinical scribing and
+          CrisisScribe is Ormer Health's flagship product: an AI-powered clinical scribing and
           quality-assurance tool, built specifically for mental-health crisis teams.
           It captures the conversation, structures the clinical record, and surfaces
           quality-assurance signals to senior clinicians — without adding to the cognitive load
@@ -806,7 +1294,7 @@
 <section id="founders">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-num">04</div>
+      <div class="section-num">05</div>
       <div class="section-title-block">
         <span class="label">Founders</span>
         <h2 class="section-title">An engineer and a clinician.</h2>
@@ -882,7 +1370,7 @@
         </div>
         <div class="contact-row">
           <span class="label">Company</span>
-          <a href="#" style="cursor: default;">Ormer AI Ltd · Reg. Jersey</a>
+          <a href="#" style="cursor: default;">Ormer Health · Ormer AI Ltd, Jersey</a>
         </div>
       </div>
     </div>
@@ -892,8 +1380,8 @@
 <footer>
   <div class="container">
     <div class="footer-content">
-      <div class="footer-brand">Ormer<em> AI</em></div>
-      <div class="footer-meta">© 2026 Ormer AI Ltd · All Rights Reserved</div>
+      <div class="footer-brand">Ormer<em> Health</em></div>
+      <div class="footer-meta">© 2026 Ormer AI Ltd · Trading as Ormer Health · All Rights Reserved</div>
     </div>
   </div>
 </footer>
