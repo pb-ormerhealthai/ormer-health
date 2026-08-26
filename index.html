@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ormer Health — Structured Innovation in Medical-Device AI</title>
-<meta name="description" content="Ormer Health helps established medical-device companies identify where AI creates real product advantage — and build the working prototype that proves it.">
+<meta name="description" content="Ormer Health helps medical-device companies identify where AI creates real product advantage, and helps research teams and spin-outs take a working model through to a regulated product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -572,6 +572,154 @@
     font-weight: 400;
   }
 
+
+  /* Research to regulated product */
+  .rtp-intro {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    margin-bottom: 56px;
+  }
+  .rtp-intro p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(17px, 1.7vw, 20px);
+    line-height: 1.55;
+    font-weight: 350;
+    font-style: italic;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    max-width: 58ch;
+  }
+  .rtp-intro p .em { color: var(--accent); font-weight: 400; }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--rule);
+  }
+  .svc {
+    padding: 32px 32px 32px 0;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .svc:nth-child(even) { padding-right: 0; padding-left: 32px; border-right: none; }
+  .svc:nth-last-child(-n+2) { border-bottom: none; }
+  .svc-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .svc h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .svc p { color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+
+  /* Guide download */
+  .guide {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+    background: var(--paper-deep);
+    border-radius: 2px;
+    padding: 48px;
+  }
+  .guide-visual {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    padding: 40px 32px;
+    aspect-ratio: 1 / 1.414;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .guide-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(150deg, rgba(168,68,44,0.20), transparent 62%);
+  }
+  .guide-visual > * { position: relative; z-index: 1; }
+  .guide-visual .label { color: rgba(251,250,247,0.55); }
+  .guide-title {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 350;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+  .guide-title em { font-style: italic; font-weight: 300; color: #E9A18C; }
+  .guide-meta {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(251,250,247,0.62);
+    border-top: 1px solid rgba(251,250,247,0.18);
+    padding-top: 14px;
+  }
+  .guide-content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.2vw, 27px);
+    font-weight: 400;
+    line-height: 1.22;
+    letter-spacing: -0.015em;
+    margin-bottom: 18px;
+    max-width: 26ch;
+  }
+  .guide-content p { color: var(--ink-soft); font-size: 15px; line-height: 1.65; margin-bottom: 16px; }
+  .guide-list {
+    list-style: none;
+    margin: 0 0 26px;
+    border-top: 1px solid var(--rule);
+  }
+  .guide-list li {
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 10px 0 10px 22px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .guide-list li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 18px;
+    width: 8px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .btn {
+    display: inline-block;
+    font-family: 'Geist', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--paper);
+    background: var(--ink);
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 2px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .guide-note { font-size: 13px; color: var(--ink-mute); margin: 14px 0 0; }
+
   /* Product showcase */
   .product {
     display: grid;
@@ -860,6 +1008,18 @@
     .case-visual { aspect-ratio: 5 / 4; padding: 32px 28px; }
     .case-visual .case-name { font-size: 28px; }
     .capabilities-grid { grid-template-columns: 1fr; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc, .svc:nth-child(even) {
+      padding: 28px 0;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .svc:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    .svc:last-child { border-bottom: none; }
+    .rtp-intro { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+    .guide { grid-template-columns: 1fr; gap: 36px; padding: 32px; margin-top: 48px; }
+    .guide-visual { aspect-ratio: 3 / 2; padding: 32px 28px; }
+    .guide-title { font-size: 26px; }
     .capabilities-note { grid-template-columns: 1fr; gap: 16px; padding-top: 32px; margin-top: 40px; }
     .cap, .cap:nth-child(even) {
       padding: 28px 0;
@@ -901,6 +1061,7 @@
         <li><a href="#approach">Approach</a></li>
         <li><a href="#case-study">Case Study</a></li>
         <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#research-to-product">Start-ups</a></li>
         <li><a href="#crisisscribe">CrisisScribe</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1233,10 +1394,116 @@
   </div>
 </section>
 
-<section id="crisisscribe">
+<section id="research-to-product">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-num">04</div>
+      <div class="section-title-block">
+        <span class="label">Start-ups &amp; Spin-outs</span>
+        <h2 class="section-title">From research project to regulated product.</h2>
+      </div>
+    </div>
+
+    <div class="rtp-intro reveal">
+      <div></div>
+      <div>
+        <p>
+          A model that performs well in a study is a <span class="em">design input</span>, not a
+          product. The step from funded research to something you can lawfully place on the
+          market is where most of the cost sits, and where the mistakes that cannot be undone
+          are made. We work with spin-outs and grant-funded teams through that transition,
+          while the decisions are still cheap to change.
+        </p>
+      </div>
+    </div>
+
+    <div class="svc-grid reveal delay-1">
+      <div class="svc">
+        <span class="svc-num">i</span>
+        <div>
+          <h4>Regulatory Strategy</h4>
+          <p>
+            Classification under MDR Rule 11, UK MDR and FDA, the conformity route that follows
+            from it, and the clinical and technical evidence needed to support it. Delivered as a
+            costed and sequenced plan, so the work becomes something you can budget and raise
+            against rather than a risk you carry unpriced.
+          </p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-num">ii</span>
+        <div>
+          <h4>QMS Development &amp; Deployment</h4>
+          <p>
+            An ISO 13485 quality system sized for a team of five rather than fifty, with AI Act
+            extensions where they apply. Built around how your team already works, deployed with
+            your people actually using it, and taken through certification audit.
+          </p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-num">iii</span>
+        <div>
+          <h4>Training &amp; Mentoring</h4>
+          <p>
+            Your engineers and clinicians learn to run design control, risk management and the
+            software lifecycle themselves. The aim is fewer consultants over time, not more.
+            Usually a mix of workshops and standing sessions through to first submission.
+          </p>
+        </div>
+      </div>
+
+      <div class="svc">
+        <span class="svc-num">iv</span>
+        <div>
+          <h4>Technical File Authoring</h4>
+          <p>
+            Clinical evaluation, risk management file, software documentation under IEC 62304,
+            usability engineering and post-market plans, written to survive assessment. Authored
+            by someone who has assessed technical files on behalf of an EU notified body.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide reveal delay-1">
+      <div class="guide-visual">
+        <span class="label">Free guide</span>
+        <div class="guide-title">From research to<br><em>regulated product</em></div>
+        <div class="guide-meta">
+          Where regulatory debt accumulates in medical-device AI, and which of it can still be
+          paid off.
+        </div>
+      </div>
+
+      <div class="guide-content">
+        <h3>What carries over, what has to be rebuilt, and what cannot be recovered.</h3>
+        <p>
+          Written for AI and machine learning software intended for the UK, EU and US markets.
+          It sets out what happens at the handover from funded research to product development,
+          and which of the decisions taken during research can still be corrected.
+        </p>
+        <ul class="guide-list">
+          <li>Consent scope, dataset provenance, and the four things that cannot be recovered</li>
+          <li>Why the training pipeline and the inference pipeline carry different obligations</li>
+          <li>The standards written specifically for machine learning, and where over-reliance sits</li>
+          <li>Why the compliance budget is usually wrong, and what is missing from it</li>
+        </ul>
+        <a class="btn" href="/guides/ormer-research-to-regulated-product.pdf" download>
+          Download the guide (PDF)
+        </a>
+        <p class="guide-note">No form, and no email address required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="crisisscribe">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-num">05</div>
       <div class="section-title-block">
         <span class="label">Product</span>
         <h2 class="section-title">CrisisScribe.</h2>
@@ -1294,7 +1561,7 @@
 <section id="founders">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-num">05</div>
+      <div class="section-num">06</div>
       <div class="section-title-block">
         <span class="label">Founders</span>
         <h2 class="section-title">An engineer and a clinician.</h2>
